@@ -1,5 +1,7 @@
 "use client";
 
+import { motion } from "framer-motion";
+
 interface ILink {
 	name: string;
 	url: string;
@@ -18,7 +20,7 @@ const experiences: IExperience[] = [
 		date: "2024 - PRESENT",
 		title: "Lead Engineer . Upstatement",
 		description:
-			"Build, style, and ship high-quality websites, design systems, mobile apps, and giital experiences for a diverse array of projects for lcient sincludin Haradavad bussines Schoo, Everytown or Gun Safety, Pratt institeu, Kjoala Health, Vanderbilt University, The 19th News, and more. Provide leaddershi within engineering departmeent trhogu close collabraotion, knowloedge shares, and spearheading the devleopemnt of internal tools.",
+			"Build, style, and ship high-quality websites, design systems, mobile apps, and digital experiences for a diverse array of projects for clients including Harvard Business School, Everytown for Gun Safety, Pratt Institute, Koala Health, Vanderbilt University, The 19th News, and more. Provide leadership within engineering department through close collaboration, knowledge shares, and spearheading the development of internal tools.",
 		languages: [
 			"JavaScript",
 			"TypeScript",
@@ -27,25 +29,25 @@ const experiences: IExperience[] = [
 			"Next.js",
 			"React Native",
 			"WordPress",
-			"Contentfull",
+			"Contentful",
 			"Node.js",
 			"PHP",
 		],
 		links: [
 			{ name: "MusicKit.js", url: "https://google.com" },
-			{ name: "9to5Mac", url: "https://googlle.com" },
+			{ name: "9to5Mac", url: "https://google.com" },
 		],
 	},
 	{
 		date: "2018 - 2024",
 		title: "Lead Dev Full Stack",
 		description:
-			"Build, style, and ship high-quality websites for lcient sincludin Haradavad bussines Schoo, Everytown or Gun Safety, Pratt institeu, Kjoala Health, Vanderbilt University, The 19th News, and more. Provide leaddershi within engineering departmeent trhogu close collabraotion, knowloedge shares, and spearheading the devleopemnt of internal tools.",
+			"Build, style, and ship high-quality websites for clients including Harvard Business School, Everytown for Gun Safety, Pratt Institute, Koala Health, Vanderbilt University, The 19th News, and more. Provide leadership within engineering department through close collaboration, knowledge shares, and spearheading the development of internal tools.",
 		languages: [
 			"JavaScript",
 			"TypeScript",
 			"HTML & CSS",
-			"Contentfull",
+			"Contentful",
 			"Node.js",
 			"PHP",
 		]
@@ -58,64 +60,101 @@ const Link = ({ link }: { link: ILink }) => {
 	};
 
 	return (
-		<div
+		<motion.div
 			className="rounded-full text-xs font-medium text-white w-fit px-3 py-1 flex gap-2"
 			onClick={() => handleLink(link)}
+			whileHover={{ scale: 1.05, backgroundColor: "rgba(255, 255, 255, 0.1)" }}
+			whileTap={{ scale: 0.95 }}
 		>
 			<div className="w-4 h-4 bg-red-500 rounded-full"></div>
 			<span>{link.name}</span>
-		</div>
+		</motion.div>
 	);
 };
 
 const TagLanguage = ({ language }: { language: string }) => {
 	return (
-		<div className="rounded-full text-xs font-medium bg-teal-400/10 text-teal-300 w-fit px-3 py-1">
+		<motion.div 
+			className="rounded-full text-xs font-medium bg-teal-400/10 text-teal-300 w-fit px-3 py-1"
+			whileHover={{ scale: 1.05, backgroundColor: "rgba(45, 212, 191, 0.2)" }}
+		>
 			<span>{language}</span>
-		</div>
+		</motion.div>
 	);
 };
 
-const ExperienceCard = ({ experience }: { experience: IExperience }) => {
+const ExperienceCard = ({ experience, index }: { experience: IExperience; index: number }) => {
 	return (
-		<div className="w-[650x] rounded-3xl">
-			<div className="flex hover:bg-slate-800/50 w-full h-full p-8 rounded-3xl cursor-pointer">
-				<div className="w-[140px]">
-					<span className="text-slate-300 font-semibold text-xs mr-8">
+		<motion.div 
+			className="w-full rounded-3xl mb-4"
+			initial={{ opacity: 0, y: 50 }}
+			whileInView={{ opacity: 1, y: 0 }}
+			viewport={{ once: true, amount: 0.3 }}
+			transition={{ duration: 0.5, delay: index * 0.1 }}
+		>
+			<motion.div 
+				className="flex w-full h-full p-8 rounded-3xl cursor-pointer"
+				whileHover={{ backgroundColor: "rgba(30, 41, 59, 0.5)", scale: 1.02 }}
+				transition={{ duration: 0.2 }}
+			>
+				<div className="w-[120px] flex-shrink-0">
+					<motion.span 
+						className="text-slate-300 font-semibold text-xs"
+					>
 						{experience.date}
-					</span>
+					</motion.span>
 				</div>
 				<div className="flex flex-col gap-2">
-					<span className="text-base text-white font-bold hover:text-teal-300">
+					<motion.span 
+						className="text-base text-white font-bold hover:text-teal-300"
+					>
 						{experience.title}
-					</span>
-					<span className="text-slate-300 text-sm">
+					</motion.span>
+					<motion.span 
+						className="text-slate-300 text-sm"
+					>
 						{experience.description}
-					</span>
-					<div className="flex gap-1 flex-wrap my-2">
-						{experience.links?.map((link, index) => {
-							return <Link key={index} link={link} />;
+					</motion.span>
+					<motion.div 
+						className="flex gap-1 flex-wrap my-2"
+					>
+						{experience.links?.map((link, linkIndex) => {
+							return <Link key={linkIndex} link={link} />;
 						})}
-					</div>
-					<div className="flex gap-1 flex-wrap">
-						{experience.languages?.map((language, index) => {
+					</motion.div>
+					<motion.div 
+						className="flex gap-1 flex-wrap"
+					>
+						{experience.languages?.map((language, langIndex) => {
 							return (
-								<TagLanguage key={index} language={language} />
+								<TagLanguage key={langIndex} language={language} />
 							);
 						})}
-					</div>
+					</motion.div>
 				</div>
-			</div>
-		</div>
+			</motion.div>
+		</motion.div>
 	);
 };
 
 const Experiences = () => {
 	return (
-		<div className="mt-16">
-			{experiences.map((experience, index) => {
-				return <ExperienceCard key={index} experience={experience} />;
-			})}
+		<div>
+			<motion.h2
+				className="text-2xl font-bold text-white mb-8"
+				initial={{ opacity: 0, y: 20 }}
+				whileInView={{ opacity: 1, y: 0 }}
+				viewport={{ once: true, amount: 0.8 }}
+				transition={{ duration: 0.5 }}
+			>
+				Where I've Worked
+			</motion.h2>
+			
+			<div>
+				{experiences.map((experience, index) => {
+					return <ExperienceCard key={index} experience={experience} index={index} />;
+				})}
+			</div>
 		</div>
 	);
 };

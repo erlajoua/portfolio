@@ -28,7 +28,7 @@ const Social = ({ social }: { social: ISocial }) => {
 	return (
 		<div
 			onClick={handleOpen}
-			className="w-12 h-12 bg-green-500 hover:bg-green-300 rounded-lg flex items-center justify-center cursor-pointer"
+			className="w-8 h-8 bg-green-500 hover:bg-green-300 rounded-lg flex items-center justify-center cursor-pointer mt-6"
 		>
 			{social.name.slice(0, 1)}
 		</div>

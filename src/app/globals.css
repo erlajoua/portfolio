@@ -7,3 +7,28 @@
 	font-optical-sizing: auto;
 	font-style: normal;
 }
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	@apply bg-slate-900;
+}
+
+/* Personnalisation de la scrollbar */
+::-webkit-scrollbar {
+	width: 8px;
+}
+
+::-webkit-scrollbar-track {
+	@apply bg-slate-900;
+}
+
+::-webkit-scrollbar-thumb {
+	@apply bg-slate-700 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	@apply bg-teal-500;
+}
