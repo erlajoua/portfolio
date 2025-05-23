@@ -6,13 +6,14 @@ import Nav from "../(Nav)/Nav";
 import Presentation from "../(Scroll)/Presentation";
 import Experiences from "../(Scroll)/Experiences";
 import Projects from "../(Scroll)/Projects";
+import { useInitTranslation } from "@/hooks/useInitTranslation";
+import { Loader2 } from "lucide-react";
 
 export default function Home() {
-  // Référence au conteneur principal
+  // TOUS LES HOOKS EN PREMIER (avant tout return early)
   const mainRef = useRef<HTMLDivElement>(null);
-  
-  // État pour suivre la position du curseur
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const initTranslation = useInitTranslation();
   
   // S'assurer que la page commence par About au chargement
   useEffect(() => {
@@ -59,6 +60,15 @@ export default function Home() {
     document.addEventListener('click', smoothScroll);
     return () => document.removeEventListener('click', smoothScroll);
   }, []);
+
+  // Loader pendant l'init des traductions (optionnel)
+  if (!initTranslation) {
+    return (
+      <div className="w-full min-h-screen bg-slate-900 flex items-center justify-center">
+        <Loader2 className="h-8 w-8 animate-spin text-blue-400" />
+      </div>
+    );
+  }
 
   return (
     <motion.div 

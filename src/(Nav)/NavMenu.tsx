@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 interface IStep {
 	name: string;
@@ -15,7 +16,10 @@ const steps: IStep[] = [
 ];
 
 const NavMenu = () => {
+	  const { t } = useTranslation();
+	
 	const [selected, setSelected] = useState<IStep>(steps[0]);
+
 
 	// Détection améliorée de la section active
 	useEffect(() => {
@@ -96,8 +100,6 @@ const NavMenu = () => {
 						>
 							{step.name}
 						</motion.span>
-						
-
 					</motion.a>
 				);
 			})}
