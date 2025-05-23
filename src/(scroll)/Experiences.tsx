@@ -100,7 +100,7 @@ const ExperienceCard = ({ experience, index }: { experience: IExperience; index:
 					delay: index * 0.15
 				}
 			}}
-			viewport={{ once: false, amount: 0.3 }}
+			viewport={{ once: true, amount: 0.3 }}
 		>
 			<motion.div 
 				className="flex w-full h-full p-8 rounded-3xl cursor-pointer"
@@ -116,7 +116,7 @@ const ExperienceCard = ({ experience, index }: { experience: IExperience; index:
 							x: 0,
 							transition: { delay: (index * 0.15) + 0.2 }
 						}}
-						viewport={{ once: false }}
+						viewport={{ once: true }}
 					>
 						{experience.date}
 					</motion.span>
@@ -129,7 +129,7 @@ const ExperienceCard = ({ experience, index }: { experience: IExperience; index:
 							opacity: 1,
 							transition: { delay: (index * 0.15) + 0.3 }
 						}}
-						viewport={{ once: false }}
+						viewport={{ once: true }}
 					>
 						{experience.title}
 					</motion.span>
@@ -140,7 +140,7 @@ const ExperienceCard = ({ experience, index }: { experience: IExperience; index:
 							opacity: 1,
 							transition: { delay: (index * 0.15) + 0.4 }
 						}}
-						viewport={{ once: false }}
+						viewport={{ once: true }}
 					>
 						{experience.description}
 					</motion.span>
@@ -152,7 +152,7 @@ const ExperienceCard = ({ experience, index }: { experience: IExperience; index:
 							y: 0,
 							transition: { delay: (index * 0.15) + 0.5 }
 						}}
-						viewport={{ once: false }}
+						viewport={{ once: true }}
 					>
 						{experience.links?.map((link, linkIndex) => {
 							return <Link key={linkIndex} link={link} />;
@@ -166,7 +166,7 @@ const ExperienceCard = ({ experience, index }: { experience: IExperience; index:
 							y: 0,
 							transition: { delay: (index * 0.15) + 0.6 }
 						}}
-						viewport={{ once: false }}
+						viewport={{ once: true }}
 					>
 						{experience.languages?.map((language, langIndex) => {
 							return (
@@ -178,7 +178,7 @@ const ExperienceCard = ({ experience, index }: { experience: IExperience; index:
 										x: 0,
 										transition: { delay: (index * 0.15) + 0.6 + (langIndex * 0.05) }
 									}}
-									viewport={{ once: false }}
+									viewport={{ once: true }}
 								>
 									<TagLanguage language={language} />
 								</motion.div>
@@ -198,7 +198,7 @@ const Experiences = () => {
 				className="text-2xl font-bold text-white mb-8"
 				initial={{ opacity: 0, x: -30 }}
 				whileInView={{ opacity: 1, x: 0 }}
-				viewport={{ once: false, amount: 0.8 }}
+				viewport={{ once: true, amount: 0.8 }}
 				transition={{ 
 					duration: 0.5,
 					type: "spring",

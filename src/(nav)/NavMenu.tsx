@@ -16,8 +16,6 @@ const steps: IStep[] = [
 ];
 
 const NavMenu = () => {
-	  const { t } = useTranslation();
-	
 	const [selected, setSelected] = useState<IStep>(steps[0]);
 
 

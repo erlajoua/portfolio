@@ -50,7 +50,7 @@ const ProjectCard = ({ project, index }: { project: IProject; index: number }) =
                     delay: index * 0.15
                 }
             }}
-            viewport={{ once: false, amount: 0.3 }}
+            viewport={{ once: true, amount: 0.3 }}
         >
             <motion.div 
                 className="flex flex-col w-full h-full p-8 rounded-3xl cursor-pointer bg-slate-800/50"
@@ -64,7 +64,7 @@ const ProjectCard = ({ project, index }: { project: IProject; index: number }) =
                         opacity: 1,
                         transition: { delay: (index * 0.15) + 0.3 }
                     }}
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                 >
                     {project.title}
                 </motion.h3>
@@ -76,7 +76,7 @@ const ProjectCard = ({ project, index }: { project: IProject; index: number }) =
                         opacity: 1,
                         transition: { delay: (index * 0.15) + 0.4 }
                     }}
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                 >
                     {project.description}
                 </motion.p>
@@ -89,7 +89,7 @@ const ProjectCard = ({ project, index }: { project: IProject; index: number }) =
                         y: 0,
                         transition: { delay: (index * 0.15) + 0.5 }
                     }}
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                 >
                     {project.technologies.map((tech, techIndex) => (
                         <motion.span
@@ -101,7 +101,7 @@ const ProjectCard = ({ project, index }: { project: IProject; index: number }) =
                                 x: 0,
                                 transition: { delay: (index * 0.15) + 0.5 + (techIndex * 0.05) }
                             }}
-                            viewport={{ once: false }}
+                            viewport={{ once: true }}
                             whileHover={{ scale: 1.05, backgroundColor: "rgba(45, 212, 191, 0.2)" }}
                         >
                             {tech}
@@ -117,7 +117,7 @@ const ProjectCard = ({ project, index }: { project: IProject; index: number }) =
                         y: 0,
                         transition: { delay: (index * 0.15) + 0.6 }
                     }}
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                 >
                     {project.link && (
                         <motion.a
@@ -157,7 +157,7 @@ const Projects = () => {
                 className="text-2xl font-bold text-white mb-8"
                 initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: false, amount: 0.8 }}
+                viewport={{ once: true, amount: 0.8 }}
                 transition={{ 
                     duration: 0.5,
                     type: "spring",
