@@ -9,18 +9,22 @@ interface IStep {
 	href: string;
 }
 
-const steps: IStep[] = [
-	{ name: "ABOUT", href: "#about" },
-	{ name: "EXPERIENCE", href: "#experience" },
-	{ name: "PROJECTS", href: "#projects" },
-];
-
 const NavMenu = () => {
-	const [selected, setSelected] = useState<IStep>(steps[0]);
-
+	const { t } = useTranslation();
+	
+	// Récupère les steps depuis les traductions
+	const steps: IStep[] = (t('nav.menu', { returnObjects: true }) as IStep[]) || [
+		{ name: "ABOUT", href: "#about" },
+		{ name: "EXPERIENCE", href: "#experience" }, 
+		{ name: "PROJECTS", href: "#projects" }
+	];
+	
+	const [selected, setSelected] = useState<IStep | null>(null);
 
 	// Détection améliorée de la section active
 	useEffect(() => {
+		if (steps.length === 0) return; // Attendre que les steps soient chargés
+		
 		// S'assurer que la page commence par About et défiler vers le haut au chargement
 		window.scrollTo(0, 0);
 		setSelected(steps[0]);
@@ -49,7 +53,7 @@ const NavMenu = () => {
 		window.addEventListener("scroll", handleScroll);
 		
 		return () => window.removeEventListener("scroll", handleScroll);
-	}, []);
+	}, [steps.length]); // Se relance quand les steps sont chargés
 
 	const handleSelect = (step: IStep) => {
 		setSelected(step);
@@ -63,7 +67,7 @@ const NavMenu = () => {
 			transition={{ duration: 0.5, delay: 0.2 }}
 		>
 			{steps.map((step, index) => {
-				const isSelected = selected === step;
+				const isSelected = selected?.href === step.href; // COMPARE PAR HREF !
 				
 				return (
 					<motion.a

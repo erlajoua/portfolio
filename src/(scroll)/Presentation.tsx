@@ -1,17 +1,24 @@
 "use client";
-
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
+import { useTranslation } from "react-i18next";
 
 const Presentation = () => {
+  const { t } = useTranslation();
+  
   // Références pour détecter quand les éléments sont visibles
   const titleRef = useRef(null);
   const textContainerRef = useRef(null);
   
   // Vérifier si les éléments sont dans la vue
-  const isTitleInView = useInView(titleRef, { once: true, amount: 0.5 });
-  const isTextInView = useInView(textContainerRef, { once: true, amount: 0.1 });
+  const isTitleInView = useInView(titleRef, { once: false, amount: 0.5 });
+  const isTextInView = useInView(textContainerRef, { once: false, amount: 0.1 });
+  
+  // Récupère les paragraphes depuis les traductions
+  const paragraphs: string[] = (t('about.paragraphs', { returnObjects: true }) as string[]) || [];
+  const aboutTitle: string = t('about.title') || 'About Me';
+  const korokSeeds: string = t('about.korokSeeds') || 'Korok seeds';
   
   // Variantes pour les animations des paragraphes
   const container = {
@@ -60,6 +67,26 @@ const Presentation = () => {
     },
   };
 
+  // Fonction pour animer chaque lettre du titre
+  const renderAnimatedTitle = (title: string) => {
+    return title.split('').map((char, index) => (
+      <motion.span
+        key={index}
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={isTitleInView ? 
+          { opacity: 1, scale: 1 } : 
+          { opacity: 0, scale: 0.8 }
+        }
+        transition={{
+          duration: 0.5,
+          delay: 0.2 + (index * 0.05)
+        }}
+      >
+        {char === ' ' ? '\u00A0' : char}
+      </motion.span>
+    ));
+  };
+
   return (
     <div>
       <motion.h2
@@ -76,84 +103,7 @@ const Presentation = () => {
           stiffness: 100
         }}
       >
-        <motion.span
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={isTitleInView ? 
-            { opacity: 1, scale: 1 } : 
-            { opacity: 0, scale: 0.8 }
-          }
-          transition={{
-            duration: 0.5,
-            delay: 0.2
-          }}
-        >A</motion.span>
-        <motion.span
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={isTitleInView ? 
-            { opacity: 1, scale: 1 } : 
-            { opacity: 0, scale: 0.8 }
-          }
-          transition={{
-            duration: 0.5,
-            delay: 0.25
-          }}
-        >b</motion.span>
-        <motion.span
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={isTitleInView ? 
-            { opacity: 1, scale: 1 } : 
-            { opacity: 0, scale: 0.8 }
-          }
-          transition={{
-            duration: 0.5,
-            delay: 0.3
-          }}
-        >o</motion.span>
-        <motion.span
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={isTitleInView ? 
-            { opacity: 1, scale: 1 } : 
-            { opacity: 0, scale: 0.8 }
-          }
-          transition={{
-            duration: 0.5,
-            delay: 0.35
-          }}
-        >u</motion.span>
-        <motion.span
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={isTitleInView ? 
-            { opacity: 1, scale: 1 } : 
-            { opacity: 0, scale: 0.8 }
-          }
-          transition={{
-            duration: 0.5,
-            delay: 0.4
-          }}
-        >t</motion.span>
-        &nbsp;
-        <motion.span
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={isTitleInView ? 
-            { opacity: 1, scale: 1 } : 
-            { opacity: 0, scale: 0.8 }
-          }
-          transition={{
-            duration: 0.5,
-            delay: 0.45
-          }}
-        >M</motion.span>
-        <motion.span
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={isTitleInView ? 
-            { opacity: 1, scale: 1 } : 
-            { opacity: 0, scale: 0.8 }
-          }
-          transition={{
-            duration: 0.5,
-            delay: 0.5
-          }}
-        >e</motion.span>
+        {renderAnimatedTitle(aboutTitle)}
       </motion.h2>
     
       <motion.div 
@@ -163,46 +113,30 @@ const Presentation = () => {
         initial="hidden"
         animate={isTextInView ? "visible" : "hidden"}
       >
-        <motion.p variants={paragraphVariants}>
-          I'm a developer passionate about crafting accessible,
-          pixel-perfect user interfaces that blend thoughtful design with
-          robust engineering. My favoritework lies at the intersection of
-          design and development, creating experiences that not only look
-          great but are meticulously built for performance and usability.
-        </motion.p>
-        
-        <motion.p variants={paragraphVariants}>
-          Currently, I'm a Senior Front-End Engineer at Klaviyo,
-          specializing in accessibility. I contribute to the creation and
-          maintenance of UI components that power Klaviyo's frontend,
-          ensuring our platform meets web accessibility standards and best
-          practices to deliver an inclusive user experience.
-        </motion.p>
-        
-        <motion.p variants={paragraphVariants}>
-          In the past, I've had the opportunity to develop software across
-          a variety of settings — from advertising agencies and large
-          corporations to start-ups and small digital product studios.
-          Additionally, I also released a comprehensive video course a few
-          years ago, guiding learners through building a web app with the
-          Spotify API.
-        </motion.p>
-        
-        <motion.p variants={paragraphVariants}>
-          In my spare time, I'm usually climbing, reading, hanging out
-          with my wife and two cats, or running around Hyrule searching
-          for <motion.span
-            className="text-white font-medium"
-            style={{ display: "inline-block" }}
-            initial={{ opacity: 1 }}
-            whileHover={{ 
-              scale: 1.1, 
-              rotate: [0, -5, 5, -5, 0],
-              transition: { duration: 0.5 }
+        {paragraphs.map((paragraph, index) => (
+          <motion.p 
+            key={index} 
+            variants={paragraphVariants}
+            dangerouslySetInnerHTML={{
+              __html: paragraph.replace(
+                /\{korokSeeds\}/g, 
+                `<span class="text-white font-medium korok-seeds">${korokSeeds}</span>`
+              )
             }}
-          >Korok seeds</motion.span>.
-        </motion.p>
+          />
+        ))}
       </motion.div>
+
+      <style jsx>{`
+        .korok-seeds {
+          display: inline-block;
+          cursor: pointer;
+        }
+        .korok-seeds:hover {
+          transform: scale(1.1) rotate(-5deg);
+          transition: transform 0.3s ease;
+        }
+      `}</style>
     </div>
   );
 };

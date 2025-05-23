@@ -2,6 +2,7 @@
 
 import LinkSvg from "@/app/svgs/LinkSvg";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 interface ILink {
 	name: string;
@@ -15,45 +16,6 @@ interface IExperience {
 	links?: ILink[];
 	languages?: string[];
 }
-
-const experiences: IExperience[] = [
-	{
-		date: "2024 - PRESENT",
-		title: "Lead Engineer . Upstatement",
-		description:
-			"Build, style, and ship high-quality websites, design systems, mobile apps, and digital experiences for a diverse array of projects for clients including Harvard Business School, Everytown for Gun Safety, Pratt Institute, Koala Health, Vanderbilt University, The 19th News, and more. Provide leadership within engineering department through close collaboration, knowledge shares, and spearheading the development of internal tools.",
-		languages: [
-			"JavaScript",
-			"TypeScript",
-			"HTML & CSS",
-			"React",
-			"Next.js",
-			"React Native",
-			"WordPress",
-			"Contentful",
-			"Node.js",
-			"PHP",
-		],
-		links: [
-			{ name: "MusicKit.js", url: "https://google.com" },
-			{ name: "9to5Mac", url: "https://google.com" },
-		],
-	},
-	{
-		date: "2018 - 2024",
-		title: "Lead Dev Full Stack",
-		description:
-			"Build, style, and ship high-quality websites for clients including Harvard Business School, Everytown for Gun Safety, Pratt Institute, Koala Health, Vanderbilt University, The 19th News, and more. Provide leadership within engineering department through close collaboration, knowledge shares, and spearheading the development of internal tools.",
-		languages: [
-			"JavaScript",
-			"TypeScript",
-			"HTML & CSS",
-			"Contentful",
-			"Node.js",
-			"PHP",
-		]
-	},
-];
 
 const Link = ({ link }: { link: ILink }) => {
 	const handleLink = (link: ILink) => {
@@ -100,7 +62,7 @@ const ExperienceCard = ({ experience, index }: { experience: IExperience; index:
 					delay: index * 0.15
 				}
 			}}
-			viewport={{ once: true, amount: 0.3 }}
+			viewport={{ once: false, amount: 0.3 }}
 		>
 			<motion.div 
 				className="flex w-full h-full p-8 rounded-3xl cursor-pointer"
@@ -116,7 +78,7 @@ const ExperienceCard = ({ experience, index }: { experience: IExperience; index:
 							x: 0,
 							transition: { delay: (index * 0.15) + 0.2 }
 						}}
-						viewport={{ once: true }}
+						viewport={{ once: false }}
 					>
 						{experience.date}
 					</motion.span>
@@ -129,7 +91,7 @@ const ExperienceCard = ({ experience, index }: { experience: IExperience; index:
 							opacity: 1,
 							transition: { delay: (index * 0.15) + 0.3 }
 						}}
-						viewport={{ once: true }}
+						viewport={{ once: false }}
 					>
 						{experience.title}
 					</motion.span>
@@ -140,7 +102,7 @@ const ExperienceCard = ({ experience, index }: { experience: IExperience; index:
 							opacity: 1,
 							transition: { delay: (index * 0.15) + 0.4 }
 						}}
-						viewport={{ once: true }}
+						viewport={{ once: false }}
 					>
 						{experience.description}
 					</motion.span>
@@ -152,7 +114,7 @@ const ExperienceCard = ({ experience, index }: { experience: IExperience; index:
 							y: 0,
 							transition: { delay: (index * 0.15) + 0.5 }
 						}}
-						viewport={{ once: true }}
+						viewport={{ once: false }}
 					>
 						{experience.links?.map((link, linkIndex) => {
 							return <Link key={linkIndex} link={link} />;
@@ -166,7 +128,7 @@ const ExperienceCard = ({ experience, index }: { experience: IExperience; index:
 							y: 0,
 							transition: { delay: (index * 0.15) + 0.6 }
 						}}
-						viewport={{ once: true }}
+						viewport={{ once: false }}
 					>
 						{experience.languages?.map((language, langIndex) => {
 							return (
@@ -178,7 +140,7 @@ const ExperienceCard = ({ experience, index }: { experience: IExperience; index:
 										x: 0,
 										transition: { delay: (index * 0.15) + 0.6 + (langIndex * 0.05) }
 									}}
-									viewport={{ once: true }}
+									viewport={{ once: false }}
 								>
 									<TagLanguage language={language} />
 								</motion.div>
@@ -192,20 +154,25 @@ const ExperienceCard = ({ experience, index }: { experience: IExperience; index:
 };
 
 const Experiences = () => {
+	const { t } = useTranslation();
+
+	// Récupère les expériences depuis les traductions
+	const experiences: IExperience[] = t('experiences.list', { returnObjects: true }) as IExperience[] || [];
+
 	return (
 		<div>
 			<motion.h2
 				className="text-2xl font-bold text-white mb-8"
 				initial={{ opacity: 0, x: -30 }}
 				whileInView={{ opacity: 1, x: 0 }}
-				viewport={{ once: true, amount: 0.8 }}
+				viewport={{ once: false, amount: 0.8 }}
 				transition={{ 
 					duration: 0.5,
 					type: "spring",
 					stiffness: 100
 				}}
 			>
-				Where I've Worked
+				{t('experiences.title')}
 			</motion.h2>
 			
 			<div>

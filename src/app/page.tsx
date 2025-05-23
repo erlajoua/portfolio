@@ -129,7 +129,7 @@ export default function Home() {
 						initial={{ opacity: 0 }}
 						whileInView={{ opacity: 1 }}
 						transition={{ duration: 0.5 }}
-						viewport={{ once: true, amount: 0.3 }}
+						viewport={{ once: false, amount: 0.3 }}
 					>
 						<Experiences />
 					</motion.div>
@@ -143,7 +143,7 @@ export default function Home() {
 						initial={{ opacity: 0 }}
 						whileInView={{ opacity: 1 }}
 						transition={{ duration: 0.5 }}
-						viewport={{ once: true, amount: 0.3 }}
+						viewport={{ once: false, amount: 0.3 }}
 					>
 						<Projects />
 					</motion.div>

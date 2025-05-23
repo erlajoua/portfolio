@@ -1,7 +1,10 @@
 import { config } from "@/app/const";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 const NavText = () => {
+  const { t } = useTranslation();
+
   // Variantes pour les animations
   const container = {
     hidden: { opacity: 0 },
@@ -37,21 +40,21 @@ const NavText = () => {
         className="font-bold text-5xl mb-1"
         variants={item}
       >
-        {config.firstName} {config.lastName}
+        {t('nav.firstName')} {t('nav.lastName')}
       </motion.h1>
       
       <motion.h3 
         className="text-xl mb-2"
         variants={item}
       >
-        {config.job}
+        {t('nav.job')}
       </motion.h3>
       
       <motion.span 
         className="text-lg text-slate-200 w-3/5"
         variants={item}
       >
-        {config.description}
+        {t('nav.description')}
       </motion.span>
     </motion.div>
   );

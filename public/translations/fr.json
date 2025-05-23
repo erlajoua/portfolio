@@ -1,5 +1,90 @@
 {
-	"common": {
-		"name": "testFR"
-	}
+  "nav": {
+    "firstName": "Erwan",
+    "lastName": "Lajouannique", 
+    "job": "Votre Titre de Poste",
+    "description": "Votre description en français",
+    "menu": [
+      { "name": "À PROPOS", "href": "#about" },
+      { "name": "EXPÉRIENCE", "href": "#experience" },
+      { "name": "PROJETS", "href": "#projects" }
+    ]
+  },
+  "about": {
+    "title": "À Propos de Moi",
+    "korokSeeds": "graines de Korok",
+    "paragraphs": [
+      "Je suis un développeur passionné par la création d'interfaces utilisateur accessibles et pixel-perfect qui allient design réfléchi et ingénierie robuste. Mon travail préféré se situe à l'intersection du design et du développement, créant des expériences qui non seulement sont visuellement attrayantes mais sont méticuleusement construites pour les performances et l'utilisabilité.",
+      "Actuellement, je suis Ingénieur Front-End Senior chez Klaviyo, spécialisé en accessibilité. Je contribue à la création et à la maintenance de composants UI qui alimentent le frontend de Klaviyo, en m'assurant que notre plateforme respecte les standards d'accessibilité web et les meilleures pratiques pour offrir une expérience utilisateur inclusive.",
+      "Dans le passé, j'ai eu l'opportunité de développer des logiciels dans une variété d'environnements — des agences de publicité et grandes corporations aux start-ups et petits studios de produits numériques. De plus, j'ai également publié un cours vidéo complet il y a quelques années, guidant les apprenants dans la construction d'une application web avec l'API Spotify.",
+      "Pendant mon temps libre, je fais généralement de l'escalade, je lis, je traîne avec ma femme et mes deux chats, ou je cours dans Hyrule à la recherche de {korokSeeds}."
+    ]
+  },
+  "experiences": {
+    "title": "Où j'ai travaillé",
+    "list": [
+      {
+        "date": "2024 - PRÉSENT",
+        "title": "Ingénieur Principal . Upstatement",
+        "description": "Conception, développement et livraison de sites web de haute qualité, systèmes de design, applications mobiles et expériences numériques pour une gamme variée de projets clients, notamment Harvard Business School, Everytown for Gun Safety, Pratt Institute, Koala Health, Vanderbilt University, The 19th News, et bien d'autres. Leadership au sein du département d'ingénierie par une collaboration étroite, le partage de connaissances et la direction du développement d'outils internes.",
+        "languages": [
+          "JavaScript",
+          "TypeScript", 
+          "HTML & CSS",
+          "React",
+          "Next.js",
+          "React Native",
+          "WordPress",
+          "Contentful",
+          "Node.js",
+          "PHP"
+        ],
+        "links": [
+          { "name": "MusicKit.js", "url": "https://google.com" },
+          { "name": "9to5Mac", "url": "https://google.com" }
+        ]
+      },
+      {
+        "date": "2018 - 2024",
+        "title": "Développeur Principal Full Stack",
+        "description": "Conception, développement et livraison de sites web de haute qualité pour des clients notamment Harvard Business School, Everytown for Gun Safety, Pratt Institute, Koala Health, Vanderbilt University, The 19th News, et plus encore. Leadership au sein du département d'ingénierie par une collaboration étroite, le partage de connaissances et la direction du développement d'outils internes.",
+        "languages": [
+          "JavaScript",
+          "TypeScript",
+          "HTML & CSS", 
+          "Contentful",
+          "Node.js",
+          "PHP"
+        ]
+      }
+    ]
+  },
+  "projects": {
+    "title": "Projets Phares",
+    "viewProject": "Voir le Projet",
+    "github": "GitHub",
+    "list": [
+      {
+        "title": "Site Portfolio",
+        "description": "Un site portfolio personnel développé avec Next.js et Framer Motion pour présenter mon travail et mon expérience.",
+        "technologies": ["Next.js", "React", "TypeScript", "Framer Motion", "Tailwind CSS"],
+        "link": "https://portfolio.com",
+        "github": "https://github.com/portfolio"
+      },
+      {
+        "title": "Application de Streaming Musical",
+        "description": "Une application web qui permet aux utilisateurs de rechercher et d'écouter de la musique en utilisant l'API Spotify.",
+        "technologies": ["React", "Node.js", "Express", "Spotify API"],
+        "link": "https://music-app.com",
+        "github": "https://github.com/music-app"
+      },
+      {
+        "title": "Plateforme E-commerce",
+        "description": "Une plateforme e-commerce full-stack avec authentification utilisateur, catalogue de produits et traitement des paiements.",
+        "technologies": ["Next.js", "MongoDB", "Stripe", "Auth0"],
+        "link": "https://ecommerce.com",
+        "github": "https://github.com/ecommerce"
+      }
+    ]
+  }
 }

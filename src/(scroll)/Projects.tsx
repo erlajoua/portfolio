@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 interface IProject {
     title: string;
@@ -10,31 +11,9 @@ interface IProject {
     github?: string;
 }
 
-const projects: IProject[] = [
-    {
-        title: "Portfolio Website",
-        description: "A personal portfolio website built with Next.js and Framer Motion to showcase my work and experience.",
-        technologies: ["Next.js", "React", "TypeScript", "Framer Motion", "Tailwind CSS"],
-        link: "https://portfolio.com",
-        github: "https://github.com/portfolio"
-    },
-    {
-        title: "Music Streaming App",
-        description: "A web application that allows users to search for and play music using the Spotify API.",
-        technologies: ["React", "Node.js", "Express", "Spotify API"],
-        link: "https://music-app.com",
-        github: "https://github.com/music-app"
-    },
-    {
-        title: "E-commerce Platform",
-        description: "A full-stack e-commerce platform with user authentication, product catalog, and payment processing.",
-        technologies: ["Next.js", "MongoDB", "Stripe", "Auth0"],
-        link: "https://ecommerce.com",
-        github: "https://github.com/ecommerce"
-    }
-];
-
 const ProjectCard = ({ project, index }: { project: IProject; index: number }) => {
+    const { t } = useTranslation();
+
     return (
         <motion.div 
             className="w-full rounded-3xl mb-4"
@@ -50,7 +29,7 @@ const ProjectCard = ({ project, index }: { project: IProject; index: number }) =
                     delay: index * 0.15
                 }
             }}
-            viewport={{ once: true, amount: 0.3 }}
+            viewport={{ once: false, amount: 0.3 }}
         >
             <motion.div 
                 className="flex flex-col w-full h-full p-8 rounded-3xl cursor-pointer bg-slate-800/50"
@@ -64,7 +43,7 @@ const ProjectCard = ({ project, index }: { project: IProject; index: number }) =
                         opacity: 1,
                         transition: { delay: (index * 0.15) + 0.3 }
                     }}
-                    viewport={{ once: true }}
+                    viewport={{ once: false }}
                 >
                     {project.title}
                 </motion.h3>
@@ -76,7 +55,7 @@ const ProjectCard = ({ project, index }: { project: IProject; index: number }) =
                         opacity: 1,
                         transition: { delay: (index * 0.15) + 0.4 }
                     }}
-                    viewport={{ once: true }}
+                    viewport={{ once: false }}
                 >
                     {project.description}
                 </motion.p>
@@ -89,7 +68,7 @@ const ProjectCard = ({ project, index }: { project: IProject; index: number }) =
                         y: 0,
                         transition: { delay: (index * 0.15) + 0.5 }
                     }}
-                    viewport={{ once: true }}
+                    viewport={{ once: false }}
                 >
                     {project.technologies.map((tech, techIndex) => (
                         <motion.span
@@ -101,7 +80,7 @@ const ProjectCard = ({ project, index }: { project: IProject; index: number }) =
                                 x: 0,
                                 transition: { delay: (index * 0.15) + 0.5 + (techIndex * 0.05) }
                             }}
-                            viewport={{ once: true }}
+                            viewport={{ once: false }}
                             whileHover={{ scale: 1.05, backgroundColor: "rgba(45, 212, 191, 0.2)" }}
                         >
                             {tech}
@@ -117,7 +96,7 @@ const ProjectCard = ({ project, index }: { project: IProject; index: number }) =
                         y: 0,
                         transition: { delay: (index * 0.15) + 0.6 }
                     }}
-                    viewport={{ once: true }}
+                    viewport={{ once: false }}
                 >
                     {project.link && (
                         <motion.a
@@ -128,7 +107,7 @@ const ProjectCard = ({ project, index }: { project: IProject; index: number }) =
                             whileHover={{ scale: 1.05, x: 3 }}
                             whileTap={{ scale: 0.95 }}
                         >
-                            View Project →
+                            {t('projects.viewProject')} →
                         </motion.a>
                     )}
                     
@@ -141,7 +120,7 @@ const ProjectCard = ({ project, index }: { project: IProject; index: number }) =
                             whileHover={{ scale: 1.05, x: 3 }}
                             whileTap={{ scale: 0.95 }}
                         >
-                            GitHub
+                            {t('projects.github')}
                         </motion.a>
                     )}
                 </motion.div>
@@ -151,20 +130,25 @@ const ProjectCard = ({ project, index }: { project: IProject; index: number }) =
 };
 
 const Projects = () => {
+    const { t } = useTranslation();
+
+    // Récupère les projets depuis les traductions
+    const projects: IProject[] = t('projects.list', { returnObjects: true }) as IProject[] || [];
+
     return (
         <div>
             <motion.h2
                 className="text-2xl font-bold text-white mb-8"
                 initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, amount: 0.8 }}
+                viewport={{ once: false, amount: 0.8 }}
                 transition={{ 
                     duration: 0.5,
                     type: "spring",
                     stiffness: 100
                 }}
             >
-                Featured Projects
+                {t('projects.title')}
             </motion.h2>
             
             <div>

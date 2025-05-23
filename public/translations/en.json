@@ -1,5 +1,90 @@
 {
-	"common": {
-		"name": "testEN"
-	}
+  "nav": {
+    "firstName": "Erwan",
+    "lastName": "Lajouannique", 
+    "job": "Your Job Title",
+    "description": "Your description in English",
+    "menu": [
+      { "name": "ABOUT", "href": "#about" },
+      { "name": "EXPERIENCE", "href": "#experience" },
+      { "name": "PROJECTS", "href": "#projects" }
+    ]
+  },
+  "about": {
+    "title": "About Me",
+    "korokSeeds": "Korok seeds",
+    "paragraphs": [
+      "I'm a developer passionate about crafting accessible, pixel-perfect user interfaces that blend thoughtful design with robust engineering. My favorite work lies at the intersection of design and development, creating experiences that not only look great but are meticulously built for performance and usability.",
+      "Currently, I'm a Senior Front-End Engineer at Klaviyo, specializing in accessibility. I contribute to the creation and maintenance of UI components that power Klaviyo's frontend, ensuring our platform meets web accessibility standards and best practices to deliver an inclusive user experience.",
+      "In the past, I've had the opportunity to develop software across a variety of settings — from advertising agencies and large corporations to start-ups and small digital product studios. Additionally, I also released a comprehensive video course a few years ago, guiding learners through building a web app with the Spotify API.",
+      "In my spare time, I'm usually climbing, reading, hanging out with my wife and two cats, or running around Hyrule searching for {korokSeeds}."
+    ]
+  },
+  "experiences": {
+    "title": "Where I've Worked",
+    "list": [
+      {
+        "date": "2024 - PRESENT",
+        "title": "Lead Engineer . Upstatement",
+        "description": "Build, style, and ship high-quality websites, design systems, mobile apps, and digital experiences for a diverse array of projects for clients including Harvard Business School, Everytown for Gun Safety, Pratt Institute, Koala Health, Vanderbilt University, The 19th News, and more. Provide leadership within engineering department through close collaboration, knowledge shares, and spearheading the development of internal tools.",
+        "languages": [
+          "JavaScript",
+          "TypeScript", 
+          "HTML & CSS",
+          "React",
+          "Next.js",
+          "React Native",
+          "WordPress",
+          "Contentful",
+          "Node.js",
+          "PHP"
+        ],
+        "links": [
+          { "name": "MusicKit.js", "url": "https://google.com" },
+          { "name": "9to5Mac", "url": "https://google.com" }
+        ]
+      },
+      {
+        "date": "2018 - 2024",
+        "title": "Lead Dev Full Stack",
+        "description": "Build, style, and ship high-quality websites for clients including Harvard Business School, Everytown for Gun Safety, Pratt Institute, Koala Health, Vanderbilt University, The 19th News, and more. Provide leadership within engineering department through close collaboration, knowledge shares, and spearheading the development of internal tools.",
+        "languages": [
+          "JavaScript",
+          "TypeScript",
+          "HTML & CSS", 
+          "Contentful",
+          "Node.js",
+          "PHP"
+        ]
+      }
+    ]
+  },
+  "projects": {
+    "title": "Featured Projects",
+    "viewProject": "View Project",
+    "github": "GitHub",
+    "list": [
+      {
+        "title": "Portfolio Website",
+        "description": "A personal portfolio website built with Next.js and Framer Motion to showcase my work and experience.",
+        "technologies": ["Next.js", "React", "TypeScript", "Framer Motion", "Tailwind CSS"],
+        "link": "https://portfolio.com",
+        "github": "https://github.com/portfolio"
+      },
+      {
+        "title": "Music Streaming App",
+        "description": "A web application that allows users to search for and play music using the Spotify API.",
+        "technologies": ["React", "Node.js", "Express", "Spotify API"],
+        "link": "https://music-app.com",
+        "github": "https://github.com/music-app"
+      },
+      {
+        "title": "E-commerce Platform",
+        "description": "A full-stack e-commerce platform with user authentication, product catalog, and payment processing.",
+        "technologies": ["Next.js", "MongoDB", "Stripe", "Auth0"],
+        "link": "https://ecommerce.com",
+        "github": "https://github.com/ecommerce"
+      }
+    ]
+  }
 }
