@@ -1,81 +1,311 @@
 @import "tailwindcss";
 
-@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap");
+
+:root {
+	--cyber-blue: #00f5ff;
+	--electric-purple: #8b5cf6;
+	--neon-green: #39ff14;
+	--cyber-pink: #ff006e;
+	--dark-bg: #0a0a0f;
+	--darker-bg: #050508;
+	--gray-800: #1f2937;
+	--gray-700: #374151;
+	--grid-color: rgba(0, 245, 255, 0.1);
+}
 
 * {
-	font-family: "Inter", sans-serif;
+	font-family: "Rajdhani", sans-serif;
 	font-optical-sizing: auto;
 	font-style: normal;
 }
 
 html {
 	scroll-behavior: smooth;
+	overflow-x: hidden;
 }
 
 body {
-	@apply bg-slate-900;
+	background: var(--dark-bg);
+	color: white;
+	overflow-x: hidden;
+	position: relative;
 }
 
-/* Personnalisation de la scrollbar */
+/* Background futuriste animé */
+body::before {
+	content: '';
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: -2;
+	background: 
+		linear-gradient(135deg, var(--dark-bg) 0%, var(--darker-bg) 100%),
+		radial-gradient(circle at 20% 50%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
+		radial-gradient(circle at 80% 20%, rgba(0, 245, 255, 0.1) 0%, transparent 50%),
+		radial-gradient(circle at 40% 80%, rgba(255, 0, 110, 0.1) 0%, transparent 50%);
+}
+
+/* Grille futuriste */
+body::after {
+	content: '';
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+	opacity: 0.3;
+	background-image: 
+		linear-gradient(rgba(0, 245, 255, 0.1) 1px, transparent 1px),
+		linear-gradient(90deg, rgba(0, 245, 255, 0.1) 1px, transparent 1px);
+	background-size: 50px 50px;
+	animation: gridPulse 4s ease-in-out infinite alternate;
+}
+
+@keyframes gridPulse {
+	0% { opacity: 0.1; }
+	100% { opacity: 0.3; }
+}
+
+/* Personnalisation de la scrollbar futuriste */
 ::-webkit-scrollbar {
 	width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-	@apply bg-slate-900;
+	background: var(--darker-bg);
+	border: 1px solid var(--cyber-blue);
 }
 
 ::-webkit-scrollbar-thumb {
-	@apply bg-slate-700 rounded-full;
+	background: linear-gradient(180deg, var(--cyber-blue), var(--electric-purple));
+	border-radius: 0;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-	@apply bg-teal-500;
+	background: linear-gradient(180deg, var(--electric-purple), var(--cyber-pink));
+	box-shadow: 0 0 10px var(--cyber-blue);
 }
 
-/* Empêcher la sélection de texte et le copier-coller */
+/* Classes utilitaires futuristes */
+.cyber-gradient-text {
+	background: linear-gradient(45deg, var(--cyber-blue), var(--electric-purple), var(--neon-green));
+	background-size: 200% 200%;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	animation: gradientShift 3s ease infinite;
+}
+
+@keyframes gradientShift {
+	0% { background-position: 0% 50%; }
+	50% { background-position: 100% 50%; }
+	100% { background-position: 0% 50%; }
+}
+
+.cyber-glow {
+	animation: textGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes textGlow {
+	0% { 
+		filter: drop-shadow(0 0 5px var(--cyber-blue));
+		text-shadow: 0 0 5px var(--cyber-blue);
+	}
+	100% { 
+		filter: drop-shadow(0 0 20px var(--cyber-blue)) drop-shadow(0 0 30px var(--electric-purple));
+		text-shadow: 0 0 20px var(--cyber-blue), 0 0 30px var(--electric-purple);
+	}
+}
+
+.cyber-border {
+	border: 2px solid var(--cyber-blue);
+	position: relative;
+}
+
+.cyber-border::before {
+	content: '';
+	position: absolute;
+	top: -2px;
+	left: -2px;
+	right: -2px;
+	bottom: -2px;
+	background: linear-gradient(45deg, var(--cyber-blue), var(--electric-purple), var(--cyber-pink));
+	z-index: -1;
+	border-radius: inherit;
+	opacity: 0;
+	transition: opacity 0.3s ease;
+}
+
+.cyber-border:hover::before {
+	opacity: 1;
+}
+
+.scan-line {
+	position: absolute;
+	width: 100%;
+	height: 2px;
+	background: linear-gradient(90deg, transparent, var(--cyber-blue), transparent);
+	animation: scan 3s linear infinite;
+}
+
+@keyframes scan {
+	0% { top: 0; opacity: 1; }
+	100% { top: 100%; opacity: 0; }
+}
+
+/* Particules flottantes */
+.particle {
+	position: absolute;
+	width: 2px;
+	height: 2px;
+	background: var(--cyber-blue);
+	border-radius: 50%;
+	animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+	0%, 100% { 
+		transform: translateY(0px) translateX(0px); 
+		opacity: 0; 
+	}
+	50% { 
+		transform: translateY(-100px) translateX(50px); 
+		opacity: 1; 
+	}
+}
+
+/* Effet de halo pour le curseur */
+.cursor-glow {
+	position: fixed;
+	width: 300px;
+	height: 300px;
+	border-radius: 50%;
+	background: radial-gradient(circle, rgba(0, 245, 255, 0.1) 0%, transparent 70%);
+	pointer-events: none;
+	z-index: 9999;
+	mix-blend-mode: screen;
+	transition: all 0.1s ease;
+}
+
+/* Typographie futuriste */
+.orbitron {
+	font-family: 'Orbitron', monospace;
+}
+
+.rajdhani {
+	font-family: 'Rajdhani', sans-serif;
+}
+
+/* Boutons futuristes */
+.cyber-btn {
+	background: transparent;
+	border: 2px solid var(--cyber-blue);
+	color: var(--cyber-blue);
+	padding: 0.8rem 1.5rem;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	transition: all 0.3s ease;
+	position: relative;
+	overflow: hidden;
+	cursor: pointer;
+}
+
+.cyber-btn::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: -100%;
+	width: 100%;
+	height: 100%;
+	background: var(--cyber-blue);
+	transition: left 0.3s ease;
+	z-index: -1;
+}
+
+.cyber-btn:hover::before {
+	left: 0;
+}
+
+.cyber-btn:hover {
+	color: var(--dark-bg);
+	box-shadow: 0 0 20px var(--cyber-blue);
+}
+
+/* Cards futuristes */
+.cyber-card {
+	background: linear-gradient(135deg, rgba(31, 41, 59, 0.3) 0%, rgba(15, 23, 42, 0.6) 100%);
+	border: 1px solid var(--cyber-blue);
+	position: relative;
+	overflow: hidden;
+	transition: all 0.3s ease;
+}
+
+.cyber-card::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: linear-gradient(45deg, transparent 30%, rgba(0, 245, 255, 0.05) 50%, transparent 70%);
+	transform: translateX(-100%);
+	transition: transform 0.6s ease;
+}
+
+.cyber-card:hover::before {
+	transform: translateX(100%);
+}
+
+.cyber-card:hover {
+	border-color: var(--electric-purple);
+	box-shadow: 0 10px 30px rgba(0, 245, 255, 0.3);
+	transform: translateY(-5px);
+}
+
+/* Tags technologiques */
+.tech-tag {
+	background: linear-gradient(45deg, var(--electric-purple), var(--cyber-pink));
+	color: white;
+	font-size: 0.8rem;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	border: 1px solid transparent;
+	transition: all 0.3s ease;
+}
+
+.tech-tag:hover {
+	background: transparent;
+	border-color: var(--electric-purple);
+	box-shadow: 0 0 10px var(--electric-purple);
+}
+
+/* Désactiver la sélection de texte pour l'effet futuriste */
 * {
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
 }
 
-/* Empêcher les opérations de copier-coller */
-body {
-  -webkit-user-drag: none;
-  -khtml-user-drag: none;
-  -moz-user-drag: none;
-  -o-user-drag: none;
-}
-
-/* Désactiver le menu contextuel (clic droit) */
-body {
-  -webkit-touch-callout: none;
-}
-
-/* Exception pour les champs de formulaire si nécessaire */
 input, textarea {
-  -webkit-user-select: text;
-  -moz-user-select: text;
-  -ms-user-select: text;
-  user-select: text;
+	-webkit-user-select: text;
+	-moz-user-select: text;
+	-ms-user-select: text;
+	user-select: text;
 }
 
-/* Pour bloquer le raccourci CTRL+C */
-@media (min-width: 0px) {
-  body {
-    -webkit-touch-callout: none;
-  }
-  
-  body::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 9999;
-    pointer-events: none;
-  }
+/* Responsive */
+@media (max-width: 768px) {
+	body::after {
+		background-size: 25px 25px;
+	}
+	
+	.cyber-gradient-text {
+		font-size: 2rem;
+	}
 }
