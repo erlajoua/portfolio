@@ -75,7 +75,7 @@ const ExperienceCard = ({ experience, index }: { experience: IExperience; index:
 			viewport={{ once: false, amount: 0.3 }}
 		>
 			<motion.div 
-				className="flex w-full h-full p-8 rounded-2xl cursor-pointer relative
+				className="flex flex-col lg:flex-row w-full h-full p-6 lg:p-8 rounded-2xl cursor-pointer relative
 				          bg-slate-800/30 backdrop-blur-sm border border-slate-700/50
 				          hover:bg-slate-800/50 hover:border-blue-500/30 transition-all duration-500 overflow-hidden"
 				whileHover={{ 
@@ -91,9 +91,15 @@ const ExperienceCard = ({ experience, index }: { experience: IExperience; index:
 					transition={{ duration: 0.5 }}
 				/>
 				
-				{/* Ligne décorative à gauche */}
+				{/* Ligne décorative à gauche (seulement sur desktop) */}
 				<motion.div
-					className="absolute left-0 top-8 bottom-8 w-1 rounded-full opacity-30 group-hover:opacity-100 bg-gradient-to-b from-blue-500 to-cyan-500"
+					className="hidden lg:block absolute left-0 top-8 bottom-8 w-1 rounded-full opacity-30 group-hover:opacity-100 bg-gradient-to-b from-blue-500 to-cyan-500"
+					transition={{ duration: 0.5 }}
+				/>
+
+				{/* Ligne décorative en haut (seulement sur mobile) */}
+				<motion.div
+					className="lg:hidden absolute top-0 left-6 right-6 h-1 rounded-full opacity-30 group-hover:opacity-100 bg-gradient-to-r from-blue-500 to-cyan-500"
 					transition={{ duration: 0.5 }}
 				/>
 
@@ -112,9 +118,10 @@ const ExperienceCard = ({ experience, index }: { experience: IExperience; index:
 					✨
 				</motion.div>
 
-				<div className="w-[140px] flex-shrink-0 relative">
+				{/* Date - en haut sur mobile, à gauche sur desktop */}
+				<div className="w-full lg:w-[140px] flex-shrink-0 relative mb-4 lg:mb-0">
 					<motion.span 
-						className="text-blue-300 font-semibold text-sm tracking-wide"
+						className="text-blue-300 font-semibold text-sm tracking-wide block"
 						initial={{ opacity: 0, x: -20 }}
 						whileInView={{ 
 							opacity: 1, 
@@ -126,9 +133,9 @@ const ExperienceCard = ({ experience, index }: { experience: IExperience; index:
 						{experience.date}
 					</motion.span>
 					
-					{/* Point décoratif */}
+					{/* Point décoratif - à droite sur desktop, en bas sur mobile */}
 					<motion.div
-						className="absolute -right-2 top-1 w-2 h-2 bg-blue-400 rounded-full"
+						className="absolute lg:-right-2 lg:top-1 -bottom-2 left-0 lg:left-auto w-2 h-2 bg-blue-400 rounded-full"
 						animate={{ 
 							scale: [1, 1.2, 1],
 							opacity: [0.6, 1, 0.6]
@@ -141,6 +148,7 @@ const ExperienceCard = ({ experience, index }: { experience: IExperience; index:
 					/>
 				</div>
 				
+				{/* Contenu principal */}
 				<div className="flex flex-col gap-4 flex-1 relative z-10">
 					<motion.h3 
 						className="text-lg font-bold text-white hover:text-blue-300 transition-colors duration-300"
