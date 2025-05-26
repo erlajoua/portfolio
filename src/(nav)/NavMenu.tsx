@@ -23,9 +23,8 @@ const NavMenu = () => {
 
 	// Détection améliorée de la section active
 	useEffect(() => {
-		if (steps.length === 0) return; // Attendre que les steps soient chargés
+		if (steps.length === 0) return;
 		
-		// S'assurer que la page commence par About et défiler vers le haut au chargement
 		window.scrollTo(0, 0);
 		setSelected(steps[0]);
 		
@@ -38,7 +37,6 @@ const NavMenu = () => {
 				return { step, element };
 			});
 			
-			// Trouver la section actuellement visible
 			let activeSection = sections[0].step;
 			
 			for (const { step, element } of sections) {
@@ -53,7 +51,7 @@ const NavMenu = () => {
 		window.addEventListener("scroll", handleScroll);
 		
 		return () => window.removeEventListener("scroll", handleScroll);
-	}, [steps.length]); // Se relance quand les steps sont chargés
+	}, [steps.length]);
 
 	const handleSelect = (step: IStep) => {
 		setSelected(step);
@@ -61,48 +59,126 @@ const NavMenu = () => {
 
 	return (
 		<motion.div 
-			className="flex flex-col gap-4"
-			initial={{ opacity: 0, x: -20 }}
+			className="flex flex-col gap-2 relative"
+			initial={{ opacity: 0, x: -30 }}
 			animate={{ opacity: 1, x: 0 }}
-			transition={{ duration: 0.5, delay: 0.2 }}
+			transition={{ duration: 0.8, delay: 0.5 }}
 		>
+			{/* Ligne verticale décorative */}
+			<div className="absolute -left-8 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-blue-500/30 to-transparent"></div>
+			
 			{steps.map((step, index) => {
-				const isSelected = selected?.href === step.href; // COMPARE PAR HREF !
+				const isSelected = selected?.href === step.href;
 				
 				return (
-					<motion.a
-						onClick={() => {
-							handleSelect(step);
-						}}
-						href={step.href}
+					<motion.div
 						key={index}
-						className="group flex items-center cursor-pointer hover:text-white"
-						whileHover={{ x: 5 }}
-						transition={{ duration: 0.2 }}
+						className="relative"
+						initial={{ opacity: 0, x: -20 }}
+						animate={{ opacity: 1, x: 0 }}
+						transition={{ duration: 0.6, delay: 0.7 + (index * 0.1) }}
 					>
-						<motion.div
-							className={`flex h-[2px] items-center justify-center ${
-								isSelected ? "bg-white" : "bg-slate-200"
-							}`}
-							initial={{ width: isSelected ? 80 : 40 }}
-							animate={{ 
-								width: isSelected ? 80 : 40,
-								backgroundColor: isSelected ? "rgb(255, 255, 255)" : "rgb(226, 232, 240)"
+						<motion.a
+							onClick={() => handleSelect(step)}
+							href={step.href}
+							className="group flex items-center cursor-pointer relative py-3 px-4 rounded-xl transition-all duration-300"
+							whileHover={{ x: 8 }}
+							whileTap={{ 
+								scale: 0.98,
+								transition: { duration: 0.1 }
 							}}
-							whileHover={{ width: 80, backgroundColor: "rgb(255, 255, 255)" }}
-							transition={{ duration: 0.3 }}
-						></motion.div>
-						<motion.span
-							className="ml-2 text-sm"
-							animate={{ 
-								color: isSelected ? "rgb(255, 255, 255)" : "rgb(226, 232, 240)"
+							onTap={() => {
+								// Effet visuel de "clic magique"
+								const ripple = document.createElement('div');
+								ripple.className = 'absolute inset-0 bg-cyan-400/30 rounded-xl animate-ping';
+								ripple.style.animationDuration = '0.3s';
+								const target = document.activeElement as HTMLElement;
+								if (target) {
+									target.appendChild(ripple);
+									setTimeout(() => ripple.remove(), 300);
+								}
 							}}
-							whileHover={{ color: "rgb(255, 255, 255)" }}
-							transition={{ duration: 0.3 }}
 						>
-							{step.name}
-						</motion.span>
-					</motion.a>
+							{/* Arrière-plan pour l'élément sélectionné */}
+							<AnimatePresence>
+								{isSelected && (
+									<motion.div
+										layoutId="selectedBackground"
+										className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 rounded-xl border border-blue-500/30"
+										initial={{ opacity: 0, scale: 0.8 }}
+										animate={{ opacity: 1, scale: 1 }}
+										exit={{ opacity: 0, scale: 0.8 }}
+										transition={{ duration: 0.3 }}
+									/>
+								)}
+							</AnimatePresence>
+							
+							{/* Indicateur à gauche */}
+							<motion.div
+								className="relative flex items-center justify-center mr-4"
+								animate={{ 
+									scale: isSelected ? 1.2 : 1,
+								}}
+								transition={{ duration: 0.3 }}
+							>
+								<motion.div
+									className={`w-3 h-3 rounded-full border-2 transition-all duration-300 ${
+										isSelected 
+											? "border-cyan-400 bg-cyan-400/50" 
+											: "border-blue-400/50 bg-transparent group-hover:border-cyan-400 group-hover:bg-cyan-400/20"
+									}`}
+									animate={{
+										boxShadow: isSelected 
+											? "0 0 20px rgba(34, 211, 238, 0.6)" 
+											: "0 0 0px rgba(34, 211, 238, 0)"
+									}}
+									transition={{ duration: 0.3 }}
+								/>
+								
+								{/* Point central lumineux */}
+								{isSelected && (
+									<motion.div
+										className="absolute w-1.5 h-1.5 bg-cyan-300 rounded-full"
+										initial={{ scale: 0 }}
+										animate={{ scale: 1 }}
+										transition={{ duration: 0.2 }}
+									/>
+								)}
+							</motion.div>
+							
+							{/* Texte du menu */}
+							<motion.span
+								className={`text-sm font-medium tracking-wide transition-all duration-300 relative z-10 ${
+									isSelected 
+										? "text-white" 
+										: "text-slate-400 group-hover:text-white"
+								}`}
+								animate={{
+									fontWeight: isSelected ? 600 : 500
+								}}
+							>
+								{step.name}
+							</motion.span>
+							
+							{/* Effet de lueur sur hover */}
+							<motion.div
+								className="absolute inset-0 bg-gradient-to-r from-blue-500/0 via-blue-500/10 to-cyan-500/0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+								initial={{ x: -100 }}
+								whileHover={{ x: 0 }}
+								transition={{ duration: 0.3 }}
+							/>
+						</motion.a>
+						
+						{/* Ligne de connexion entre les éléments */}
+						{index < steps.length - 1 && (
+							<motion.div
+								className="absolute left-6 bottom-0 w-px h-3 bg-gradient-to-b from-blue-500/30 to-transparent"
+								initial={{ scaleY: 0 }}
+								animate={{ scaleY: 1 }}
+								transition={{ duration: 0.4, delay: 1 + (index * 0.1) }}
+							/>
+						)}
+					</motion.div>
 				);
 			})}
 		</motion.div>

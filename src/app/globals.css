@@ -2,35 +2,81 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 
+:root {
+  /* Palette de couleurs bleues */
+  --navy-900: #0f172a;
+  --navy-800: #1e293b;
+  --navy-700: #334155;
+  --navy-600: #475569;
+  --navy-500: #64748b;
+  --navy-400: #94a3b8;
+  --navy-300: #cbd5e1;
+  --navy-200: #e2e8f0;
+  --navy-100: #f1f5f9;
+  
+  --blue-900: #1e3a8a;
+  --blue-800: #1e40af;
+  --blue-700: #1d4ed8;
+  --blue-600: #2563eb;
+  --blue-500: #3b82f6;
+  --blue-400: #60a5fa;
+  --blue-300: #93c5fd;
+  --blue-200: #bfdbfe;
+  --blue-100: #dbeafe;
+  
+  --cyan-500: #06b6d4;
+  --cyan-400: #22d3ee;
+  --cyan-300: #67e8f9;
+}
+
 * {
-	font-family: "Inter", sans-serif;
-	font-optical-sizing: auto;
-	font-style: normal;
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
 }
 
 html {
-	scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 body {
-	@apply bg-slate-900;
+  background: linear-gradient(135deg, var(--navy-900) 0%, var(--blue-900) 50%, var(--navy-800) 100%);
+  min-height: 100vh;
+  position: relative;
+}
+
+/* Effet de grille subtile en arrière-plan */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(rgba(59, 130, 246, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(59, 130, 246, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+  pointer-events: none;
+  z-index: 0;
 }
 
 /* Personnalisation de la scrollbar */
 ::-webkit-scrollbar {
-	width: 8px;
+  width: 6px;
 }
 
 ::-webkit-scrollbar-track {
-	@apply bg-slate-900;
+  background: var(--navy-800);
 }
 
 ::-webkit-scrollbar-thumb {
-	@apply bg-slate-700 rounded-full;
+  background: linear-gradient(var(--blue-600), var(--cyan-500));
+  border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-	@apply bg-teal-500;
+  background: linear-gradient(var(--blue-500), var(--cyan-400));
 }
 
 /* Empêcher la sélection de texte et le copier-coller */
@@ -62,20 +108,222 @@ input, textarea {
   user-select: text;
 }
 
-/* Pour bloquer le raccourci CTRL+C */
-@media (min-width: 0px) {
-  body {
-    -webkit-touch-callout: none;
+/* Effet de lueur bleue subtile */
+.glow-blue {
+  box-shadow: 
+    0 0 20px rgba(59, 130, 246, 0.15),
+    0 0 40px rgba(59, 130, 246, 0.1),
+    0 0 80px rgba(59, 130, 246, 0.05);
+}
+
+/* Animation de pulsation subtile */
+@keyframes subtle-pulse {
+  0%, 100% {
+    opacity: 1;
   }
-  
-  body::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
+  50% {
+    opacity: 0.8;
+  }
+}
+
+.pulse-subtle {
+  animation: subtle-pulse 3s ease-in-out infinite;
+}
+
+/* Effet de particules flottantes */
+.floating-particles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.particle {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: var(--blue-400);
+  border-radius: 50%;
+  opacity: 0.3;
+}
+
+/* Animations fantaisistes */
+@keyframes float-magic {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  33% {
+    transform: translateY(-20px) rotate(120deg);
+  }
+  66% {
+    transform: translateY(-10px) rotate(240deg);
+  }
+}
+
+@keyframes sparkle {
+  0%, 100% {
+    opacity: 0;
+    transform: scale(0) rotate(0deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1) rotate(180deg);
+  }
+}
+
+@keyframes rainbow-border {
+  0% {
+    border-color: rgba(59, 130, 246, 0.5);
+  }
+  25% {
+    border-color: rgba(34, 211, 238, 0.5);
+  }
+  50% {
+    border-color: rgba(167, 139, 250, 0.5);
+  }
+  75% {
+    border-color: rgba(236, 72, 153, 0.5);
+  }
+  100% {
+    border-color: rgba(59, 130, 246, 0.5);
+  }
+}
+
+.magic-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.magic-hover:hover {
+  animation: float-magic 2s ease-in-out infinite;
+}
+
+.sparkle-effect {
+  position: relative;
+  overflow: visible;
+}
+
+.sparkle-effect::before,
+.sparkle-effect::after {
+  content: '✨';
+  position: absolute;
+  font-size: 12px;
+  animation: sparkle 2s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.sparkle-effect::before {
+  top: -5px;
+  left: -5px;
+  animation-delay: 0s;
+}
+
+.sparkle-effect::after {
+  bottom: -5px;
+  right: -5px;
+  animation-delay: 1s;
+}
+
+/* Effet de typing pour le texte */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
     width: 100%;
-    height: 100%;
-    z-index: 9999;
-    pointer-events: none;
   }
+}
+
+@keyframes blink-caret {
+  from, to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: var(--cyan-400);
+  }
+}
+
+.typing-effect {
+  overflow: hidden;
+  border-right: 2px solid var(--cyan-400);
+  white-space: nowrap;
+  margin: 0 auto;
+  animation: 
+    typing 3.5s steps(40, end),
+    blink-caret 1s step-end infinite;
+}
+
+/* Effet de constellation */
+.constellation-line {
+  position: absolute;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--blue-400), transparent);
+  opacity: 0;
+  animation: constellation-pulse 4s ease-in-out infinite;
+}
+
+@keyframes constellation-pulse {
+  0%, 100% {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scaleX(1);
+  }
+}
+
+/* Effet de morphing sur les boutons */
+.morph-button {
+  background: linear-gradient(45deg, var(--blue-600), var(--cyan-500));
+  background-size: 200% 200%;
+  animation: gradient-morph 4s ease infinite;
+}
+
+@keyframes gradient-morph {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Bordures avec dégradé bleu */
+.border-gradient-blue {
+  border: 1px solid transparent;
+  background: linear-gradient(var(--navy-800), var(--navy-800)) padding-box,
+              linear-gradient(135deg, var(--blue-600), var(--cyan-500)) border-box;
+}
+
+/* Effet de glassmorphism */
+.glass-effect {
+  background: rgba(30, 41, 59, 0.4);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+/* Texte avec dégradé bleu */
+.text-gradient-blue {
+  background: linear-gradient(135deg, var(--blue-400), var(--cyan-400));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Effet hover moderne */
+.hover-lift {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    0 10px 25px rgba(59, 130, 246, 0.15),
+    0 4px 15px rgba(59, 130, 246, 0.1);
 }
