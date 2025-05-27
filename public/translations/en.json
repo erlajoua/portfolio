@@ -2,88 +2,198 @@
   "nav": {
     "firstName": "Erwan",
     "lastName": "Lajouannique", 
-    "job": "Your Job Title",
-    "description": "Your description in English",
+    "job": "Full Stack Developer",
+    "description": "Développeur Full Stack passionné par la création d'expériences utilisateur exceptionnelles",
     "menu": [
-      { "name": "ABOUT", "href": "#about" },
-      { "name": "EXPERIENCE", "href": "#experience" },
-      { "name": "PROJECTS", "href": "#projects" }
+      { "name": "À PROPOS", "href": "#about" },
+      { "name": "EXPÉRIENCE", "href": "#experience" },
+      { "name": "PROJETS", "href": "#projects" }
     ]
   },
   "about": {
-    "title": "About Me",
-    "korokSeeds": "Korok seeds",
+    "title": "À Propos de Moi",
+    "korokSeeds": "graines de Korok",
     "paragraphs": [
-      "I'm a developer passionate about crafting accessible, pixel-perfect user interfaces that blend thoughtful design with robust engineering. My favorite work lies at the intersection of design and development, creating experiences that not only look great but are meticulously built for performance and usability.",
-      "Currently, I'm a Senior Front-End Engineer at Klaviyo, specializing in accessibility. I contribute to the creation and maintenance of UI components that power Klaviyo's frontend, ensuring our platform meets web accessibility standards and best practices to deliver an inclusive user experience.",
-      "In the past, I've had the opportunity to develop software across a variety of settings — from advertising agencies and large corporations to start-ups and small digital product studios. Additionally, I also released a comprehensive video course a few years ago, guiding learners through building a web app with the Spotify API.",
-      "In my spare time, I'm usually climbing, reading, hanging out with my wife and two cats, or running around Hyrule searching for {korokSeeds}."
+      "Je suis développeur Full Stack avec une approche pragmatique du code. Je travaille principalement avec React, Vue.js, Next.js côté front-end et Node.js, Firebase côté back-end. J'aime créer des apps qui fonctionnent bien et qui sont agréables à utiliser.",
+      "Ces dernières années, j'ai bossé sur pas mal de projets différents : des plateformes de coaching musical, des systèmes de billetterie, des ERP, des apps mobiles. J'ai fait du freelance et du CDI, ce qui m'a permis de toucher à plein de technos et de m'adapter à différents contextes.",
+      "Actuellement, je continue en freelance sur des projets variés. Je maîtrise l'écosystème JavaScript moderne, les API REST, les intégrations tierces (Stripe, Firebase, etc.) et j'aime bien les défis techniques qui demandent de sortir des sentiers battus.",
+      "Quand je code pas, je pratique le karaté, je fais de la moto et j'essaie de garder un équilibre entre travail et vie perso. Rien d'extraordinaire, juste les trucs qui me permettent de décompresser."
     ]
   },
   "experiences": {
-    "title": "Where I've Worked",
+    "title": "Où j'ai travaillé",
     "list": [
       {
-        "date": "2024 - PRESENT",
-        "title": "Lead Engineer . Upstatement",
-        "description": "Build, style, and ship high-quality websites, design systems, mobile apps, and digital experiences for a diverse array of projects for clients including Harvard Business School, Everytown for Gun Safety, Pratt Institute, Koala Health, Vanderbilt University, The 19th News, and more. Provide leadership within engineering department through close collaboration, knowledge shares, and spearheading the development of internal tools.",
+        "date": "JUILLET 2022 - JUILLET 2023",
+        "title": "Full Stack Developer - CDI",
+        "company": "Ekimetrics",
+        "location": "Paris, France", 
+        "description": "Développement au sein d'une entreprise européenne leader en DataScience. Intégration front-end via mock-ups, développement d'API back-end robustes, écriture de tests, et création d'une bibliothèque UI/UX pour assurer la cohérence de l'interface utilisateur.",
         "languages": [
-          "JavaScript",
-          "TypeScript", 
-          "HTML & CSS",
           "React",
-          "Next.js",
-          "React Native",
-          "WordPress",
-          "Contentful",
+          "Vue.js",
+          "Angular", 
           "Node.js",
-          "PHP"
-        ],
-        "links": [
-          { "name": "MusicKit.js", "url": "https://google.com" },
-          { "name": "9to5Mac", "url": "https://google.com" }
+          "MongoDB",
+          "PostgreSQL"
         ]
       },
       {
-        "date": "2018 - 2024",
-        "title": "Lead Dev Full Stack",
-        "description": "Build, style, and ship high-quality websites for clients including Harvard Business School, Everytown for Gun Safety, Pratt Institute, Koala Health, Vanderbilt University, The 19th News, and more. Provide leadership within engineering department through close collaboration, knowledge shares, and spearheading the development of internal tools.",
+        "date": "JUIN 2024 - PRÉSENT",
+        "title": "Lead Full Stack Developer - Freelance",
+        "company": "Missions Variées",
+        "location": "Paris, France",
+        "description": "Développement de projets variés en freelance : wallet crypto personnalisé, systèmes de billetterie, refonte d'applications blockchain, amélioration d'ERP. Expertise en Next.js, React, Node.js, et intégrations API tierces (Stripe, Web3, Firebase).",
         "languages": [
-          "JavaScript",
-          "TypeScript",
-          "HTML & CSS", 
-          "Contentful",
+          "Next.js",
+          "React",
           "Node.js",
+          "MongoDB",
+          "Web3.js",
+          "Stripe API",
+          "Firebase",
           "PHP"
+        ]
+      },
+      {
+        "date": "JUILLET 2024 - SEPTEMBRE 2024 & SEPTEMBRE 2023 - FÉVRIER 2024",
+        "title": "Lead Full Stack Developer - Freelance",
+        "company": "MyMusicAds",
+        "location": "Paris, France",
+        "description": "Développement de la plateforme de coaching musical pour artistes indépendants. Première mission : développement de la partie coaching avec Angular/MongoDB/Firebase. Seconde mission : refonte complète en Next.js from scratch avec migration de l'ancienne stack.",
+        "languages": [
+          "Next.js",
+          "Angular",
+          "Node.js",
+          "Firebase",
+          "MongoDB",
+          "Stripe API",
+          "Figma"
+        ]
+      },
+      {
+        "date": "AOÛT 2024 - OCTOBRE 2024",
+        "title": "Lead Full Stack Developer - Freelance",
+        "company": "Minah.io",
+        "location": "Paris, France",
+        "description": "Refonte complète de l'application blockchain avec création d'une interface d'administration communiquant avec les smart contracts. Architecture moderne et interface utilisateur optimisée pour la gestion des tokens et transactions.",
+        "languages": [
+          "Next.js",
+          "Node.js",
+          "Tailwind",
+          "Smart Contracts",
+          "Web3"
+        ]
+      },
+      {
+        "date": "JUIN 2024 - JUILLET 2024",
+        "title": "Lead Full Stack Developer - Freelance",
+        "company": "Spectacle de Danse",
+        "location": "Paris, France",
+        "description": "Développement d'un système de billetterie complet pour spectacle de danse. Intégration API Stripe pour les paiements, génération automatique de QR codes, envoi d'emails avec billets PDF, et interface d'administration.",
+        "languages": [
+          "Next.js",
+          "Node.js",
+          "Firebase",
+          "Stripe API",
+          "Tailwind"
+        ]
+      },
+      {
+        "date": "MARS 2024 - JUIN 2024",
+        "title": "Full Stack Developer - CDI",
+        "company": "Bubbleplan",
+        "location": "Paris, France",
+        "description": "Développement d'une application de gestion de planning. Implémentation d'interfaces à partir de maquettes Figma, développement d'API back-end et intégration base de données PostgreSQL.",
+        "languages": [
+          "Vue.js",
+          "Node.js",
+          "PostgreSQL",
+          "Figma"
+        ]
+      },
+      {
+        "date": "NOVEMBRE 2024 - PRÉSENT",
+        "title": "Lead Full Stack Developer - Freelance",
+        "company": "FourSomePartners",
+        "location": "Paris, France",
+        "description": "Amélioration et développement de nouvelles fonctionnalités sur un ERP existant en PHP. Ajout de modules personnalisés selon les besoins client, optimisation des performances et refactoring de l'interface utilisateur.",
+        "languages": [
+          "PHP",
+          "MySQL",
+          "JavaScript",
+          "Bootstrap"
+        ]
+      },
+      {
+        "date": "SEPTEMBRE 2024 - NOVEMBRE 2024",
+        "title": "Lead Full Stack Developer - Freelance",
+        "company": "Client Privé",
+        "location": "Paris, France",
+        "description": "Développement d'une application wallet crypto personnalisée pour client particulier. Création d'une interface similaire à Metamask mais adaptée aux besoins spécifiques du client, avec gestion sécurisée des clés privées et intégration blockchain.",
+        "languages": [
+          "Next.js",
+          "Node.js",
+          "MongoDB",
+          "Web3.js",
+          "Tailwind"
         ]
       }
     ]
   },
   "projects": {
-    "title": "Featured Projects",
-    "viewProject": "View Project",
+    "title": "Projets Phares",
+    "viewProject": "Voir le Projet",
     "github": "GitHub",
     "list": [
       {
-        "title": "Portfolio Website",
-        "description": "A personal portfolio website built with Next.js and Framer Motion to showcase my work and experience.",
-        "technologies": ["Next.js", "React", "TypeScript", "Framer Motion", "Tailwind CSS"],
-        "link": "https://portfolio.com",
-        "github": "https://github.com/portfolio"
+        "title": "App Rewiring",
+        "description": "PWA pour tracker ses habitudes de développement personnel. Développement from scratch incluant design UX/UI, développement full-stack et déploiement en Progressive Web App. Interface moderne et intuitive pour le suivi quotidien d'habitudes.",
+        "technologies": ["Svelte", "Tailwind", "Firebase", "Figma", "PWA"],
+        "link": "https://app-rewiring.com",
+        "github": "https://github.com/app-rewiring"
       },
       {
-        "title": "Music Streaming App",
-        "description": "A web application that allows users to search for and play music using the Spotify API.",
-        "technologies": ["React", "Node.js", "Express", "Spotify API"],
-        "link": "https://music-app.com",
-        "github": "https://github.com/music-app"
+        "title": "HeureCivique",
+        "description": "Initiative citoyenne du créateur de la Fête des Voisins. Application mobile pour la mairie du 17ème arrondissement de Paris permettant aux administrations d'ajouter des missions et aux bénévoles de s'inscrire facilement.",
+        "technologies": ["Ruby on Rails", "React Native", "Apollo GraphQL"],
+        "link": "https://heurecivique.fr",
+        "github": "https://github.com/heurecivique"
       },
       {
-        "title": "E-commerce Platform",
-        "description": "A full-stack e-commerce platform with user authentication, product catalog, and payment processing.",
-        "technologies": ["Next.js", "MongoDB", "Stripe", "Auth0"],
-        "link": "https://ecommerce.com",
-        "github": "https://github.com/ecommerce"
+        "title": "Système Billetterie Spectacle",
+        "description": "Plateforme complète de billetterie pour spectacle de danse. Intégration paiement Stripe, génération automatique de QR codes, envoi d'emails avec billets PDF, et interface d'administration pour la gestion des événements.",
+        "technologies": ["Next.js", "Node.js", "Firebase", "Stripe API", "Tailwind"],
+        "link": "https://billetterie-dance.com",
+        "github": "https://github.com/billetterie-dance"
+      },
+      {
+        "title": "MyMusicAds Platform",
+        "description": "Plateforme de formation pour artistes musicaux indépendants. Refonte complète en Next.js avec système de coaching, gestion de contenu vidéo, tableau de bord étudiant/formateur, et intégration paiement.",
+        "technologies": ["Next.js", "Node.js", "Firebase", "Stripe API", "MongoDB"],
+        "link": "https://mymusicads.com",
+        "github": "https://github.com/mymusicads"
+      },
+      {
+        "title": "Wallet Crypto Personnalisé",
+        "description": "Développement d'une application wallet crypto sur mesure pour client particulier. Interface inspirée de Metamask mais entièrement personnalisée selon les besoins spécifiques, avec gestion sécurisée des clés privées, suivi de portefeuille multi-devises et intégration blockchain avancée.",
+        "technologies": ["Next.js", "Node.js", "MongoDB", "Web3.js", "Tailwind"],
+        "link": "https://custom-wallet.com",
+        "github": "https://github.com/custom-crypto-wallet"
+      },
+      {
+        "title": "Minah.io Platform",
+        "description": "Refonte complète d'une application blockchain avec création d'une interface d'administration communiquant avec les smart contracts. Architecture moderne avec Next.js et interface utilisateur optimisée pour la gestion des tokens et transactions.",
+        "technologies": ["Next.js", "Node.js", "Tailwind", "Smart Contracts", "Web3"],
+        "link": "https://minah.io",
+        "github": "https://github.com/minah-io"
+      },
+      {
+        "title": "FourSomePartners ERP",
+        "description": "Amélioration et ajout de fonctionnalités sur un ERP existant en PHP. Développement de modules personnalisés selon les besoins client, optimisation des performances et mise à jour de l'interface utilisateur.",
+        "technologies": ["PHP", "MySQL", "JavaScript", "Bootstrap"],
+        "link": "https://foursomepartners.com",
+        "github": "https://github.com/foursome-erp"
       }
     ]
   }

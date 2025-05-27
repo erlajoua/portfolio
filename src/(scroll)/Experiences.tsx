@@ -12,6 +12,8 @@ interface ILink {
 interface IExperience {
 	date: string;
 	title: string;
+	company?: string;
+	location?: string;
 	description: string;
 	links?: ILink[];
 	languages?: string[];
@@ -150,17 +152,34 @@ const ExperienceCard = ({ experience, index }: { experience: IExperience; index:
 				
 				{/* Contenu principal */}
 				<div className="flex flex-col gap-4 flex-1 relative z-10">
-					<motion.h3 
-						className="text-lg font-bold text-white hover:text-blue-300 transition-colors duration-300"
-						initial={{ opacity: 0 }}
-						whileInView={{ 
-							opacity: 1,
-							transition: { delay: (index * 0.1) + 0.3 }
-						}}
-						viewport={{ once: false }}
-					>
-						{experience.title}
-					</motion.h3>
+					<div className="flex flex-col gap-1">
+						<motion.h3 
+							className="text-lg font-bold text-white hover:text-blue-300 transition-colors duration-300"
+							initial={{ opacity: 0 }}
+							whileInView={{ 
+								opacity: 1,
+								transition: { delay: (index * 0.1) + 0.3 }
+							}}
+							viewport={{ once: false }}
+						>
+							{experience.title}
+						</motion.h3>
+						
+						{experience.company && (
+							<motion.span 
+								className="text-blue-400 font-medium text-sm"
+								initial={{ opacity: 0 }}
+								whileInView={{ 
+									opacity: 1,
+									transition: { delay: (index * 0.1) + 0.35 }
+								}}
+								viewport={{ once: false }}
+							>
+								{experience.company}
+								{experience.location && ` • ${experience.location}`}
+							</motion.span>
+						)}
+					</div>
 					
 					<motion.p 
 						className="text-slate-300 text-sm leading-relaxed"
