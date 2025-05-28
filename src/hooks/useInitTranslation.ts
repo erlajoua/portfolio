@@ -2,7 +2,7 @@ import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 import { useEffect, useState } from "react";
 
-const DEFAULT_LANG: string = "en";
+const DEFAULT_LANG: string = "fr";
 const STORAGE_LANG_KEY: string = "lang";
 
 type TranslationObject = Record<string, any>;

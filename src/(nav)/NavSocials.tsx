@@ -14,12 +14,12 @@ interface ISocial {
 const socials: ISocial[] = [
   {
     name: "Github",
-    url: "https://github.com",
+    url: "https://github.com/erlajoua",
     icon: <GithubSvg />
   },
   {
     name: "LinkedIn",
-    url: "https://linkedin.com",
+    url: "https://www.linkedin.com/in/erwan-lajouannique-674875123/",
     icon: <LinkedIn />
   },
 ];

@@ -1,23 +1,32 @@
 {
   "nav": {
     "firstName": "Erwan",
-    "lastName": "Lajouannique", 
+    "lastName": "Lajouannique",
     "job": "Full Stack Developer",
     "description": "Développeur Full Stack passionné par la création d'expériences utilisateur exceptionnelles",
     "menu": [
-      { "name": "À PROPOS", "href": "#about" },
-      { "name": "EXPÉRIENCE", "href": "#experience" },
-      { "name": "PROJETS", "href": "#projects" }
+      {
+        "name": "À PROPOS",
+        "href": "#about"
+      },
+      {
+        "name": "EXPÉRIENCE",
+        "href": "#experience"
+      },
+      {
+        "name": "PROJETS",
+        "href": "#projects"
+      }
     ]
   },
   "about": {
     "title": "À Propos de Moi",
     "korokSeeds": "graines de Korok",
     "paragraphs": [
-      "Je suis développeur Full Stack avec une approche pragmatique du code. Je travaille principalement avec React, Vue.js, Next.js côté front-end et Node.js, Firebase côté back-end. J'aime créer des apps qui fonctionnent bien et qui sont agréables à utiliser.",
-      "Ces dernières années, j'ai bossé sur pas mal de projets différents : des plateformes de coaching musical, des systèmes de billetterie, des ERP, des apps mobiles. J'ai fait du freelance et du CDI, ce qui m'a permis de toucher à plein de technos et de m'adapter à différents contextes.",
-      "Actuellement, je continue en freelance sur des projets variés. Je maîtrise l'écosystème JavaScript moderne, les API REST, les intégrations tierces (Stripe, Firebase, etc.) et j'aime bien les défis techniques qui demandent de sortir des sentiers battus.",
-      "Quand je code pas, je pratique le karaté, je fais de la moto et j'essaie de garder un équilibre entre travail et vie perso."
+      "Développeur Full Stack avec 3+ années d'expérience, je conçois des applications web performantes et user-friendly. Mon expertise couvre React, Vue.js, Next.js côté front-end, ainsi que Node.js et Firebase pour le back-end",
+      "J'ai développé des solutions variées : plateformes de coaching musical, systèmes de billetterie, ERP et applications mobiles. Cette expérience diversifiée m'a donné une forte capacité d'adaptation et une approche pragmatique du développement.",
+      "Consultant indépendant, j'accompagne mes clients dans leurs projets de digitalisation. Je maîtrise les intégrations API (Stripe, Firebase), l'architecture REST et les standards modernes de développement. Ma valeur ajoutée : transformer des besoins complexes en solutions techniques élégantes.",
+      "En dehors du code, je pratique le karaté et la moto pour maintenir un bon équilibre vie pro/perso."
     ]
   },
   "experiences": {
@@ -27,12 +36,12 @@
         "date": "JUILLET 2022 - JUILLET 2023",
         "title": "Full Stack Developer - CDI",
         "company": "Ekimetrics",
-        "location": "Paris, France", 
+        "location": "Paris, France",
         "description": "Développement au sein d'une entreprise européenne leader en DataScience. Intégration front-end via mock-ups, développement d'API back-end robustes, écriture de tests, et création d'une bibliothèque UI/UX pour assurer la cohérence de l'interface utilisateur.",
         "languages": [
           "React",
           "Vue.js",
-          "Angular", 
+          "Angular",
           "Node.js",
           "MongoDB",
           "PostgreSQL"
@@ -149,51 +158,23 @@
       {
         "title": "App Rewiring",
         "description": "PWA pour tracker ses habitudes de développement personnel. Développement from scratch incluant design UX/UI, développement full-stack et déploiement en Progressive Web App. Interface moderne et intuitive pour le suivi quotidien d'habitudes.",
-        "technologies": ["Svelte", "Tailwind", "Firebase", "Figma", "PWA"],
-        "link": "https://app-rewiring.com",
-        "github": "https://github.com/app-rewiring"
+        "technologies": [
+          "Svelte",
+          "Tailwind",
+          "Firebase",
+          "Figma",
+          "PWA"
+        ],
+        "github": "https://github.com/erlajoua/rewiring"
       },
       {
         "title": "HeureCivique",
         "description": "Initiative citoyenne du créateur de la Fête des Voisins. Application mobile pour la mairie du 17ème arrondissement de Paris permettant aux administrations d'ajouter des missions et aux bénévoles de s'inscrire facilement.",
-        "technologies": ["Ruby on Rails", "React Native", "Apollo GraphQL"],
-        "link": "https://heurecivique.fr",
-        "github": "https://github.com/heurecivique"
-      },
-      {
-        "title": "Système Billetterie Spectacle",
-        "description": "Plateforme complète de billetterie pour spectacle de danse. Intégration paiement Stripe, génération automatique de QR codes, envoi d'emails avec billets PDF, et interface d'administration pour la gestion des événements.",
-        "technologies": ["Next.js", "Node.js", "Firebase", "Stripe API", "Tailwind"],
-        "link": "https://billetterie-dance.com",
-        "github": "https://github.com/billetterie-dance"
-      },
-      {
-        "title": "MyMusicAds Platform",
-        "description": "Plateforme de formation pour artistes musicaux indépendants. Refonte complète en Next.js avec système de coaching, gestion de contenu vidéo, tableau de bord étudiant/formateur, et intégration paiement.",
-        "technologies": ["Next.js", "Node.js", "Firebase", "Stripe API", "MongoDB"],
-        "link": "https://mymusicads.com",
-        "github": "https://github.com/mymusicads"
-      },
-      {
-        "title": "Wallet Crypto Personnalisé",
-        "description": "Développement d'une application wallet crypto sur mesure pour client particulier. Interface inspirée de Metamask mais entièrement personnalisée selon les besoins spécifiques, avec gestion sécurisée des clés privées, suivi de portefeuille multi-devises et intégration blockchain avancée.",
-        "technologies": ["Next.js", "Node.js", "MongoDB", "Web3.js", "Tailwind"],
-        "link": "https://custom-wallet.com",
-        "github": "https://github.com/custom-crypto-wallet"
-      },
-      {
-        "title": "Minah.io Platform",
-        "description": "Refonte complète d'une application blockchain avec création d'une interface d'administration communiquant avec les smart contracts. Architecture moderne avec Next.js et interface utilisateur optimisée pour la gestion des tokens et transactions.",
-        "technologies": ["Next.js", "Node.js", "Tailwind", "Smart Contracts", "Web3"],
-        "link": "https://minah.io",
-        "github": "https://github.com/minah-io"
-      },
-      {
-        "title": "FourSomePartners ERP",
-        "description": "Amélioration et ajout de fonctionnalités sur un ERP existant en PHP. Développement de modules personnalisés selon les besoins client, optimisation des performances et mise à jour de l'interface utilisateur.",
-        "technologies": ["PHP", "MySQL", "JavaScript", "Bootstrap"],
-        "link": "https://foursomepartners.com",
-        "github": "https://github.com/foursome-erp"
+        "technologies": [
+          "Ruby on Rails",
+          "React Native",
+          "Apollo GraphQL"
+        ]
       }
     ]
   }
